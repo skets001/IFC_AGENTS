@@ -1,0 +1,20 @@
+project_name: ''
+rules:
+- name: Wall Property Requirement
+  description: IFCWALL elements must have a Pset_WallCommon property set with FireRating
+    set to 60
+  applicable_entities:
+  - IFCWALL
+  requirements:
+  - type: property
+    property_set: Pset_WallCommon
+    name: FireRating
+    expected_value: '60'
+- name: Door Naming Convention
+  description: IFCDOOR elements must have a Name attribute starting with Door-
+  applicable_entities:
+  - IFCDOOR
+  requirements:
+  - type: attribute
+    name: Name
+    expected_pattern: ^Door-.*

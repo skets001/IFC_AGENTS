@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ids xmlns="http://standards.buildingsmart.org/IDS" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://standards.buildingsmart.org/IDS ids.xsd">
+  <info>
+    <title>Strict COBie/FM Handover IDS</title>
+    <version>1.0</version>
+    <description>Strict handover-oriented checks for naming, tagging, type assignment, and COBie manufacturer/model information on maintainable assets.</description>
+    <purpose>Find missing handover metadata before COBie/FM delivery.</purpose>
+  </info>
+  <specifications>
+    <specification name="Project must be named" ifcVersion="IFC4 IFC4X3_ADD2">
+      <applicability minOccurs="1" maxOccurs="1">
+        <entity><name><simpleValue>IFCPROJECT</simpleValue></name></entity>
+      </applicability>
+      <requirements><attribute cardinality="required"><name><simpleValue>Name</simpleValue></name></attribute></requirements>
+    </specification>
+    <specification name="Site must be named" ifcVersion="IFC4 IFC4X3_ADD2">
+      <applicability minOccurs="1" maxOccurs="unbounded">
+        <entity><name><simpleValue>IFCSITE</simpleValue></name></entity>
+      </applicability>
+      <requirements><attribute cardinality="required"><name><simpleValue>Name</simpleValue></name></attribute></requirements>
+    </specification>
+    <specification name="Building must be named" ifcVersion="IFC4 IFC4X3_ADD2">
+      <applicability minOccurs="1" maxOccurs="unbounded">
+        <entity><name><simpleValue>IFCBUILDING</simpleValue></name></entity>
+      </applicability>
+      <requirements><attribute cardinality="required"><name><simpleValue>Name</simpleValue></name></attribute></requirements>
+    </specification>
+    <specification name="Storeys must be named" ifcVersion="IFC4 IFC4X3_ADD2">
+      <applicability minOccurs="1" maxOccurs="unbounded">
+        <entity><name><simpleValue>IFCBUILDINGSTOREY</simpleValue></name></entity>
+      </applicability>
+      <requirements><attribute cardinality="required"><name><simpleValue>Name</simpleValue></name></attribute></requirements>
+    </specification>
+    <specification name="Spaces must have COBie names" ifcVersion="IFC4 IFC4X3_ADD2">
+      <applicability minOccurs="0" maxOccurs="unbounded">
+        <entity><name><simpleValue>IFCSPACE</simpleValue></name></entity>
+      </applicability>
+      <requirements>
+        <attribute cardinality="required"><name><simpleValue>Name</simpleValue></name></attribute>
+        <attribute cardinality="required"><name><simpleValue>LongName</simpleValue></name></attribute>
+      </requirements>
+    </specification>
+    <specification name="Doors must have COBie identity" ifcVersion="IFC4 IFC4X3_ADD2">
+      <applicability minOccurs="0" maxOccurs="unbounded">
+        <entity><name><simpleValue>IFCDOOR</simpleValue></name></entity>
+      </applicability>
+      <requirements>
+        <attribute cardinality="required"><name><simpleValue>Name</simpleValue></name></attribute>
+        <attribute cardinality="required"><name><simpleValue>Tag</simpleValue></name></attribute>
+        <property cardinality="required"><propertySet><simpleValue>Pset_ManufacturerTypeInformation</simpleValue></propertySet><baseName><simpleValue>Manufacturer</simpleValue></baseName></property>
+        <property cardinality="required"><propertySet><simpleValue>Pset_ManufacturerTypeInformation</simpleValue></propertySet><baseName><simpleValue>ModelReference</simpleValue></baseName></property>
+      </requirements>
+    </specification>
+    <specification name="Windows must have COBie identity" ifcVersion="IFC4 IFC4X3_ADD2">
+      <applicability minOccurs="0" maxOccurs="unbounded">
+        <entity><name><simpleValue>IFCWINDOW</simpleValue></name></entity>
+      </applicability>
+      <requirements>
+        <attribute cardinality="required"><name><simpleValue>Name</simpleValue></name></attribute>
+        <attribute cardinality="required"><name><simpleValue>Tag</simpleValue></name></attribute>
+        <property cardinality="required"><propertySet><simpleValue>Pset_ManufacturerTypeInformation</simpleValue></propertySet><baseName><simpleValue>Manufacturer</simpleValue></baseName></property>
+        <property cardinality="required"><propertySet><simpleValue>Pset_ManufacturerTypeInformation</simpleValue></propertySet><baseName><simpleValue>ModelReference</simpleValue></baseName></property>
+      </requirements>
+    </specification>
+    <specification name="Mechanical equipment must have COBie identity" ifcVersion="IFC4 IFC4X3_ADD2">
+      <applicability minOccurs="0" maxOccurs="unbounded">
+        <entity><name><simpleValue>IFCFLOWMOVINGDEVICE</simpleValue></name></entity>
+      </applicability>
+      <requirements>
+        <attribute cardinality="required"><name><simpleValue>Name</simpleValue></name></attribute>
+        <attribute cardinality="required"><name><simpleValue>Tag</simpleValue></name></attribute>
+        <property cardinality="required"><propertySet><simpleValue>Pset_ManufacturerTypeInformation</simpleValue></propertySet><baseName><simpleValue>Manufacturer</simpleValue></baseName></property>
+        <property cardinality="required"><propertySet><simpleValue>Pset_ManufacturerTypeInformation</simpleValue></propertySet><baseName><simpleValue>ModelReference</simpleValue></baseName></property>
+      </requirements>
+    </specification>
+    <specification name="Electrical terminals must have COBie identity" ifcVersion="IFC4 IFC4X3_ADD2">
+      <applicability minOccurs="0" maxOccurs="unbounded">
+        <entity><name><simpleValue>IFCFLOWTERMINAL</simpleValue></name></entity>
+      </applicability>
+      <requirements>
+        <attribute cardinality="required"><name><simpleValue>Name</simpleValue></name></attribute>
+        <attribute cardinality="required"><name><simpleValue>Tag</simpleValue></name></attribute>
+        <property cardinality="required"><propertySet><simpleValue>Pset_ManufacturerTypeInformation</simpleValue></propertySet><baseName><simpleValue>Manufacturer</simpleValue></baseName></property>
+        <property cardinality="required"><propertySet><simpleValue>Pset_ManufacturerTypeInformation</simpleValue></propertySet><baseName><simpleValue>ModelReference</simpleValue></baseName></property>
+      </requirements>
+    </specification>
+    <specification name="Building element proxies require review identity" ifcVersion="IFC4 IFC4X3_ADD2">
+      <applicability minOccurs="0" maxOccurs="unbounded">
+        <entity><name><simpleValue>IFCBUILDINGELEMENTPROXY</simpleValue></name></entity>
+      </applicability>
+      <requirements>
+        <attribute cardinality="required"><name><simpleValue>Name</simpleValue></name></attribute>
+        <property cardinality="required"><propertySet><simpleValue>Pset_IFCAgentProxyReview</simpleValue></propertySet><baseName><simpleValue>RecommendedAction</simpleValue></baseName></property>
+      </requirements>
+    </specification>
+  </specifications>
+</ids>

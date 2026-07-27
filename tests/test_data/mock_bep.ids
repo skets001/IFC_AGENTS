@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ids xmlns="http://standards.buildingsmart.org/IDS" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://standards.buildingsmart.org/IDS http://standards.buildingsmart.org/IDS/1.0/ids.xsd">
+    <info>
+        <title>Untitled</title>
+        <description>Generated from BEP YAML Rule Pack by IFC Intelligence Agent</description>
+    </info>
+    <specifications>
+        <specification name="Wall Property Requirement" ifcVersion="IFC2X3 IFC4 IFC4X3_ADD2" description="IFCWALL elements must have a Pset_WallCommon property set with FireRating set to 60">
+            <applicability minOccurs="0" maxOccurs="unbounded">
+                <entity>
+                    <name>
+                        <simpleValue>IFCWALL</simpleValue>
+                    </name>
+                </entity>
+            </applicability>
+            <requirements>
+                <property cardinality="required">
+                    <propertySet>
+                        <simpleValue>Pset_WallCommon</simpleValue>
+                    </propertySet>
+                    <baseName>
+                        <simpleValue>FireRating</simpleValue>
+                    </baseName>
+                    <value>
+                        <simpleValue>60</simpleValue>
+                    </value>
+                </property>
+            </requirements>
+        </specification>
+        <specification name="Door Naming Convention" ifcVersion="IFC2X3 IFC4 IFC4X3_ADD2" description="IFCDOOR elements must have a Name attribute starting with Door-">
+            <applicability minOccurs="0" maxOccurs="unbounded">
+                <entity>
+                    <name>
+                        <simpleValue>IFCDOOR</simpleValue>
+                    </name>
+                </entity>
+            </applicability>
+            <requirements>
+                <attribute cardinality="required">
+                    <name>
+                        <simpleValue>Name</simpleValue>
+                    </name>
+                    <value>
+                        <simpleValue>^Door-.*</simpleValue>
+                    </value>
+                </attribute>
+            </requirements>
+        </specification>
+    </specifications>
+</ids>

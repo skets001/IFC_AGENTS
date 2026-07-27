@@ -1,0 +1,12 @@
+
+project_name: Test Project BEP
+rules:
+  - name: Wall Fire Rating
+    description: Walls must have correct fire rating
+    applicable_entities:
+      - IFCWALL
+    requirements:
+      - type: property
+        property_set: Pset_WallCommon
+        name: FireRating
+        expected_value: 60
